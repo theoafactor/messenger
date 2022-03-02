@@ -1,0 +1,18 @@
+{
+    "name": "olumideadekunleadeyemo/dragn",
+    "description": "Handles sending messages to users",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dragn\\": "Core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Olu",
+            "email": "theoafactor@gmail.com"
+        }
+    ],
+    "require": {}
+}

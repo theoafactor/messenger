@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Dragn\\": "Core/"
+            "Dragon\\": "src"
         }
     },
     "authors": [
@@ -15,6 +15,7 @@
         }
     ],
     "require": {
-        "phpmailer/phpmailer": "^6.6"
+        "phpmailer/phpmailer": "^6.6",
+        "devcoder-xyz/php-dotenv": "^1.1"
     }
 }

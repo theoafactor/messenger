@@ -61,7 +61,7 @@ class DragonTemplate{
 
 	public function runTemplateEngine(){
 
-		echo $this->template_content;
+		 return $this->template_content;
 
 
 	}

@@ -15,15 +15,22 @@
 - Add the following line at the top of your project:
 
 ```
-	use Dragon
+	use Dragon\Dragon;
 
 ```
 
 - Create an instance of the Dragon class
 
 ```
-	
+	$dragon = new Dragon();
 	
 ``` 
+
+- Send your email.
+
+```
+	$dragon->sendMessage('recepient@email.com', 'Message Subject', $extra_data_array, "email_template.html");
+
+```
 
 ### Author: Olu Adeyemo [theoafactor@gmail.com]

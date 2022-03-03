@@ -13,8 +13,7 @@ use Dragon\DragonTemplate;
 use DevCoder\DotEnv;
 
 
-
-class Dragon {
+class Dragon{
 
 	use DragonError;
 	
@@ -24,25 +23,39 @@ class Dragon {
 
 	public $dragon;
 
+
+	private $mailer;
+
+	private $senderName;
+	private $username;
+	private $password;
+	private $host;
+	private $port;
+
+
 	
 
 	
 	public function __construct(){
 
 
+		
 		(new DotEnv(__DIR__ . '/.env'))->load();
 
-		echo getenv('APP_ENV');
-		// dev
-		echo getenv('DATABASE_DNS');
-		// mysql:host=localhost;dbname=test;
+		$this->senderName = getenv('SENDER_NAME');
+		$this->username = getenv("SENDER_USERNAME");
+		$this->password = getenv("SENDER_PASSWORD");
+		$this->port = getenv("MAIL_PORT");
+		$this->host = getenv("MAIL_HOST");
+
+		$this->senderEmail = getenv("SENDER_EMAIL");
 
 
-		//create new mailer
-		//$this->mailer = new PHPMailer(true);
+		//inialize the PHPMailer 
+		
+		$this->mailer = new PHPMailer(true);
 
 
-		//initialize the DragonError
 
 
 	}
@@ -77,23 +90,83 @@ class Dragon {
 	/**
 	 * Sends the messasge
 	 * @param  [type] $recepient     [description]
+	 * @param [string] $message_title
 	 * @param  [type] $user_data     [description]
 	 * @param  [type] $template_path [description]
 	 * @return [type]                [description]
 	 */
-	public function sendMessage(string $recepient, array $user_data = null, string $template_file = null){
+	public function sendMessage(string $recepient,  $message_title = null,  array $user_data = null, string $template_file = null){
 
 		//set the $user_data
+		$recepient_identifier = $recepient;
 		if($user_data != null){
 
 			$this->setData($user_data);
 
+			$firstname_keys = array("firstname", "first name", "firstName", "FIRSTNAME", "name", "Name", "NAME");
+
+
+			foreach($firstname_keys as $firstname){
+				if(array_key_exists($firstname, $user_data)){
+					$recepient_identifier = $user_data[$firstname];
+					break;
+				}
+			}
+
 		}
+
+
+
+
+
+
+
 
 		$dragonTemplate = new DragonTemplate($template_file, $this);
 
 		//run the template engine
-		$dragonTemplate->runTemplateEngine();
+		$content = $dragonTemplate->runTemplateEngine();
+
+
+		try{
+
+			//$this->mailer->SMTPDebug = SMTP::DEBUG_SERVER;
+			$this->mailer->isSMTP(); 
+			$this->mailer->Host = $this->host;
+			$this->mailer->SMTPAuth   = true;  
+			$this->mailer->Username   = $this->username; 
+			$this->mailer->Password   = $this->password;
+			$this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+			$this->mailer->Port       = $this->port;
+
+			$this->mailer->SMTPOptions = array(
+				    'ssl' => array(
+				        'verify_peer' => false,
+				        'verify_peer_name' => false,
+				        'allow_self_signed' => true
+    					)
+					);
+
+			$this->mailer->setFrom($this->senderEmail, $this->senderName);
+			$this->mailer->addAddress($recepient, $recepient_identifier);
+
+			$this->mailer->isHTML(true);
+
+			$this->mailer->Subject = $message_title;
+
+			$this->mailer->Body = $content;
+
+			$this->mailer->send();
+
+			echo "Message sent";
+
+
+
+		}catch(Exception $e){
+			echo "Message could not be sent. Mailer Error: {$this->mailer->ErrorInfo}";
+		}
+
+
 	
 
 

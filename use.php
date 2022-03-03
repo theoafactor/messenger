@@ -14,7 +14,7 @@ $user_data = [
 			'lastname' => "John"
 	];
 
-$dragon->sendMessage("theoafactor@gmail.com", $user_data, "email.html"); //send your message
+$dragon->sendMessage("theoafactor@gmail.com", "Welcome to our Website", $user_data, "email.html"); //send your message
 
 
 

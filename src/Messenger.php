@@ -40,7 +40,9 @@ class Messenger{
 
 
 		
-		(new DotEnv(__DIR__ . '/.env'))->load();
+		//(new DotEnv(__DIR__ . '/.env'))->load();
+		
+		(new DotEnv('.env'))->load();
 
 		$this->senderName = getenv('SENDER_NAME');
 		$this->username = getenv("SENDER_USERNAME");

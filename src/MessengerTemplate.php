@@ -15,7 +15,7 @@ class MessengerTemplate{
 
 		if($template_file != null){
 			//load the template file to use for sending the message
-			$template_file = "templates/{$template_file}";
+			$template_file = __DIR__."/templates/{$template_file}";
 
 			if(file_exists($template_file)){
 				$template_content = file_get_contents($template_file);

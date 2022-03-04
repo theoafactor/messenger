@@ -5,6 +5,8 @@ namespace Messenger;
 
 
 class MessengerTemplate{
+
+	use MessengerError;
 	
 
 

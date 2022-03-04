@@ -3,10 +3,10 @@ ini_set("display_errors", "on");
 require "vendor/autoload.php";
 
 
-use Dragon\Dragon;
+use Messenger\Messenger;
 
 
-$dragon = new Dragon;
+$messenger = new Messenger;
 
 
 $user_data = [
@@ -14,7 +14,8 @@ $user_data = [
 			'lastname' => "John"
 	];
 
-$dragon->sendMessage("theoafactor@gmail.com", "Welcome to our Website", $user_data, "email.html"); //send your message
+
+$messenger->sendMessage("theoafactor@gmail.com", "Welcome to our Website", $user_data, "email.html"); //send your message
 
 
 

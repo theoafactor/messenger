@@ -1,11 +1,11 @@
 <?php 
 
-namespace Dragon;
+namespace Messenger;
 
 use DevCoder\DotEnv;
 
 
-class BaseDragon{
+class BaseMessenger{
 
 
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Dragon;
+namespace Messenger;
 
 use DotEnv;
 
-class DragonEnvParser{
+class MessengerEnvParser{
 	/**
      * The directory where the .env file can be located.
      *

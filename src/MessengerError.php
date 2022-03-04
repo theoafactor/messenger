@@ -1,9 +1,9 @@
 <?php
 
-namespace Dragon;
+namespace Messenger;
 
 
-trait DragonError{
+trait MessengerError{
 
 
 	public function showError($error_message = null){

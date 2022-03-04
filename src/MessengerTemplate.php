@@ -1,15 +1,15 @@
 <?php
 
 
-namespace Dragon;
+namespace Messenger;
 
 
-class DragonTemplate{
+class MessengerTemplate{
 	
 
 
-	//Create new dragon template instance
-	public function __construct($template_file, $dragon){
+	//Create new messenger template instance
+	public function __construct($template_file, $messenger){
 
 		if($template_file != null){
 			//load the template file to use for sending the message
@@ -19,7 +19,7 @@ class DragonTemplate{
 				$template_content = file_get_contents($template_file);
 
 
-				foreach($dragon as $key => $value){
+				foreach($messenger as $key => $value){
 
 
 					//echo "$key => $value\n";

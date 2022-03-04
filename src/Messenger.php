@@ -1,6 +1,6 @@
 <?php
 
-namespace Dragon;
+namespace Messenger;
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -8,20 +8,20 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 
-use Dragon\DragonTemplate;
+use Messenger\MessengerTemplate;
 
 use DevCoder\DotEnv;
 
 
-class Dragon{
+class Messenger{
 
-	use DragonError;
+	use MessengerError;
 	
 
 
 	public $message;
 
-	public $dragon;
+	public $messenger;
 
 
 	private $mailer;
@@ -122,10 +122,10 @@ class Dragon{
 
 
 
-		$dragonTemplate = new DragonTemplate($template_file, $this);
+		$messengerTemplate = new MessengerTemplate($template_file, $this);
 
 		//run the template engine
-		$content = $dragonTemplate->runTemplateEngine();
+		$content = $messengerTemplate->runTemplateEngine();
 
 
 		try{

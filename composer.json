@@ -1,11 +1,11 @@
 {
-    "name": "theoafactor/dragon",
-    "description": "Handles sending messages to users",
+    "name": "theoafactor/messenger",
+    "description": "Handles sending email messages to users",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Dragon\\": "src"
+            "Messenger\\": "src"
         }
     },
     "authors": [

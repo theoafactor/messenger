@@ -1,8 +1,7 @@
 ## Messenger
 ### An email and message sender.
 
-1. Sends email and general message to users 
-
+1. Easily sends emails to users 
 
 
 2. Add the project 
@@ -42,12 +41,53 @@ use Messenger\Messenger;
 
 
 ### Setting Environmental Values
-	You can set environmental values with .env file at the root of your project. Please use the .env.example file as an example.
+
+1. You should set the environmental values with .env file at the root of your project. Please use the .env.example file as an example.
+
+2. Create a .env file and copy the sample from .env.example file over.
+
+3. Supply the data.
 
 
 
 
 ### Using Email Templates
+
+1. The package uses a mini template engine. The engine will look for your email template in the root of the directory.
+
+2. Variables are outputted with {{ variable_name }} within the template.
+
+3. Variables data come from the extra data associative array passed to the sendMessage() method. For example, in the code below, we have set the extra data associate array to have the firstname and lastname keys.
+	
+```
+	$userData = [
+
+		"firstname" => "James",
+		"lastname"  => "John"
+
+	];
+
+```
+
+4. In the email template, we can reference these variables by using:
+
+	```
+		<body>
+
+			<h2>Welcome {{ firstname }}</h2>
+
+		</body>
+
+	```
+
+
+
+### Note
+
+1. This project is actively under development. You may use it for your project. You may also contribute to this project by creating a pull request.
+
+2. Please report any security issue as soon as you spot one. 
+
 
 
 ### Author: Olu Adeyemo [theoafactor@gmail.com]

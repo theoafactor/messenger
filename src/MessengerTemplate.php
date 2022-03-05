@@ -53,16 +53,12 @@ class MessengerTemplate{
 
 				foreach($messenger as $key => $value){
 
-
-					//echo "$key => $value\n";
-					$pattern = "/{{\s*$key\s*}}/";
+					$variable_pattern = "/{{\s*$key\s*}}/";
 					
-					if(preg_match_all($pattern, $template_content, $matched)){
-
-						//print_r($matched);
+					if(preg_match_all($variable_pattern, $template_content, $matched)){
 
 						if(count($matched) > 0){
-							$template_content = preg_replace($pattern, $value, $template_content);
+							$template_content = preg_replace($variable_pattern, $value, $template_content);
 						}
 
 					}
@@ -70,7 +66,13 @@ class MessengerTemplate{
 
 				}
 
+
+
+				
 				$this->template_content = $template_content;
+
+
+
 
 		
 				

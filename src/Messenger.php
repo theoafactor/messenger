@@ -38,9 +38,6 @@ class Messenger{
 	
 	public function __construct(){
 
-
-		
-		//(new DotEnv(__DIR__ . '/.env'))->load();
 		
 		(new DotEnv('.env'))->load();
 

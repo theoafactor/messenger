@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aedb7c11f2c7e1e2053b91dccb339b82",
+    "content-hash": "f5a6701303fd46233614affdd209cf09",
     "packages": [
         {
             "name": "devcoder-xyz/php-dotenv",
@@ -137,5 +137,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }

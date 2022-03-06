@@ -10,7 +10,7 @@
 	composer require theoafactor/messenger
 ```
 
-3. Add the following line at the top of your project:
+3. Add the following lines at the top of your project:
 
 ```
 require "vendor/autoload.php";

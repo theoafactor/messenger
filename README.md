@@ -44,7 +44,7 @@ use Messenger\Messenger;
 
 1. You should set the environmental values with .env file at the root of your project. Please use the .env.example file as an example.
 
-2. Create a .env file and copy the sample from .env.example file over.
+2. Create a .env file and copy the sample from .env.example file inside theoafactor/messenger/src directory over.
 
 3. Supply the data.
 
@@ -69,7 +69,7 @@ use Messenger\Messenger;
 
 ```
 
-4. In the email template, we can reference these variables by using:
+4. In the email template, we can reference the firstname key by using:
 
 	```
 		<body>
@@ -80,6 +80,22 @@ use Messenger\Messenger;
 
 	```
 
+
+### Loops
+
+1. This package uses basic looping mechanism and only supports the foreach loop. To loop through an array in the template, follow the sample below:
+
+```
+	@foreach(arrayKey as item)
+		{{ item }}
+	@endforeach
+```
+
+2. Remember that the *arrayKey* comes from the data you passed to the sendMessage() method.
+
+3. Support for *nested loops* has not been added.
+
+4. Support for *conditional statements* has not been added.
 
 
 ### Note
